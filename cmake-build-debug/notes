@@ -1,0 +1,4 @@
+1) How to assign random numbers to the edges such that the each edge gets a unique number and the 2 edges in the list
+that represent the same edge get the same number?
+Ans1: We can generate the edge list in such a way that when an edge(u,v) is added, its corresponding edge(v,u) is added
+ right after it and so we assign them the same numbers. We can sort this list as we wish after creation.
