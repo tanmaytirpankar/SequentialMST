@@ -4,6 +4,7 @@
 #include "cmake-build-debug/MinSpanTree.h"
 
 using namespace std;
+
 int main() {
     //CSV file to be taken which contains edges in the form <source,destination,weight> and first line is number of vertices,number of edges..
     string file = "CMakeFiles/temp";
