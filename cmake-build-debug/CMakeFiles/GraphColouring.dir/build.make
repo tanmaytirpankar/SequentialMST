@@ -71,43 +71,43 @@ CMakeFiles/GraphColouring.dir/main.cpp.s: cmake_force
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/main.cpp -o CMakeFiles/GraphColouring.dir/main.cpp.s
 
 CMakeFiles/GraphColouring.dir/graph.cpp.o: CMakeFiles/GraphColouring.dir/flags.make
-CMakeFiles/GraphColouring.dir/graph.cpp.o: graph.cpp
+CMakeFiles/GraphColouring.dir/graph.cpp.o: ../graph.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/GraphColouring.dir/graph.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/graph.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/graph.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp
 
 CMakeFiles/GraphColouring.dir/graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphColouring.dir/graph.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.cpp > CMakeFiles/GraphColouring.dir/graph.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp > CMakeFiles/GraphColouring.dir/graph.cpp.i
 
 CMakeFiles/GraphColouring.dir/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphColouring.dir/graph.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.cpp -o CMakeFiles/GraphColouring.dir/graph.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp -o CMakeFiles/GraphColouring.dir/graph.cpp.s
 
 CMakeFiles/GraphColouring.dir/edge.cpp.o: CMakeFiles/GraphColouring.dir/flags.make
-CMakeFiles/GraphColouring.dir/edge.cpp.o: edge.cpp
+CMakeFiles/GraphColouring.dir/edge.cpp.o: ../edge.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GraphColouring.dir/edge.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/edge.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/edge.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.cpp
 
 CMakeFiles/GraphColouring.dir/edge.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphColouring.dir/edge.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.cpp > CMakeFiles/GraphColouring.dir/edge.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.cpp > CMakeFiles/GraphColouring.dir/edge.cpp.i
 
 CMakeFiles/GraphColouring.dir/edge.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphColouring.dir/edge.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.cpp -o CMakeFiles/GraphColouring.dir/edge.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.cpp -o CMakeFiles/GraphColouring.dir/edge.cpp.s
 
 CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o: CMakeFiles/GraphColouring.dir/flags.make
-CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o: MinSpanTree.cpp
+CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o: ../MinSpanTree.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o -c /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp
 
 CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp > CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp > CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.i
 
 CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp -o CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp -o CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.s
 
 # Object files for target GraphColouring
 GraphColouring_OBJECTS = \

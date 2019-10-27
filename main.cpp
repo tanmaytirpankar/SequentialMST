@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
-#include "cmake-build-debug/graph.h"
-#include "cmake-build-debug/MinSpanTree.h"
-
+#include "graph.h"
+#include "MinSpanTree.h"
+#include <chrono>
 using namespace std;
 int main() {
     //CSV file to be taken which contains edges in the form <source,destination,weight> and first line is number of vertices,number of edges..
-    string file = "CMakeFiles/temp";
+    string file = "../testsets/temp";
     graph G = graph();
+    chrono::time_point<std::chrono::system_clock> start, end;
     //G.createUndGrpfrmfile(file);
     G.createUndGrpFrmDGrp(file);
     MinSpanTree mst = MinSpanTree(G);
@@ -15,8 +16,12 @@ int main() {
 //    mst.renameVertices();
 //    mst.updateOriginalEdgeList();
 //    mst.selectMSTEdges();
+    start = chrono::system_clock::now();
     vector<edge> finalMST = mst.findMST();
     mst.displayEdges(finalMST);
+    end = chrono::system_clock::now();
+    chrono::duration<double> elapsed_seconds = end - start;
+    cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
     return 0;
 }
 

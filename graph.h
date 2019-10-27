@@ -18,8 +18,6 @@ public:
     graph(int, int);
     //Constructor which initializes edge list as well.
     graph(int, int, vector<edge>);
-    //Creates graph using input provided by user.
-    void createGraph();
     //Creates undirected graph structure using the undirected graph input edges provided from the file.
     //***Random numbers representing edge numbers not assigned yet.
     void createUndGrpfrmfile(string);

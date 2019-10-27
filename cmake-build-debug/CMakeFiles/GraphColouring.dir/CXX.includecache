@@ -6,27 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp
-MinSpanTree.h
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.h
-iostream
--
-array
--
-
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.h
 graph.h
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h
 vector
 -
 array
 -
 
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.h
 
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h
 edge.h
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.h
 vector
 -
 
@@ -35,8 +27,10 @@ iostream
 -
 string
 -
-cmake-build-debug/graph.h
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.h
-cmake-build-debug/MinSpanTree.h
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.h
+graph.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h
+MinSpanTree.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.h
+chrono
+-
 

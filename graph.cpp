@@ -22,9 +22,6 @@ graph::graph(int V, int E, vector<edge> newEdgeList) {
     this->numedges = E;
     this->edges = newEdgeList;
 }
-void graph::createGraph() {
-
-}
 void graph::createUndGrpfrmfile(string file) {
     ifstream in;
     in.open(file);

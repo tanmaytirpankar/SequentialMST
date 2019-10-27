@@ -231,7 +231,7 @@ OpenMP_C_FLAGS:STRING=NOTFOUND
 OpenMP_C_LIB_NAMES:STRING=NOTFOUND
 
 //Path to a library.
-OpenMP_libomp_LIBRARY:FILEPATH=OpenMP_libomp_LIBRARY-NOTFOUND
+OpenMP_libomp_LIBRARY:FILEPATH=/usr/local/lib/libomp.dylib
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl

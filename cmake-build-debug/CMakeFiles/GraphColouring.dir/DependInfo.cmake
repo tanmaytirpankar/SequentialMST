@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o"
-  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/edge.cpp.o"
-  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/graph.cpp.o"
+  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/MinSpanTree.cpp.o"
+  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/edge.cpp.o"
+  "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/graph.cpp.o"
   "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/main.cpp" "/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/CMakeFiles/GraphColouring.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

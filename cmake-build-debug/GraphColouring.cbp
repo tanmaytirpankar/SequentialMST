@@ -80,22 +80,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.cpp">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp">
 			<Option target="GraphColouring"/>
 		</Unit>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/MinSpanTree.h">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.h">
 			<Option target="GraphColouring"/>
 		</Unit>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.cpp">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.cpp">
 			<Option target="GraphColouring"/>
 		</Unit>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/edge.h">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.h">
 			<Option target="GraphColouring"/>
 		</Unit>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.cpp">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp">
 			<Option target="GraphColouring"/>
 		</Unit>
-		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/cmake-build-debug/graph.h">
+		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h">
 			<Option target="GraphColouring"/>
 		</Unit>
 		<Unit filename="/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/main.cpp">
