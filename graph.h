@@ -33,7 +33,7 @@ public:
     //Comparator for sorting edges by means of source vertex first and then by destination vertex.
     static bool comparator2(edge, edge);
     //Comparator for sorting edges by means of source vertex first and then by weights.
-    static bool comparator3(edge, edge);
+    static bool comparator3(const edge&, const edge&);
     //Comparator for sorting edges by means of random number only.
     static bool comparator4(edge, edge);
     int getNumedges();

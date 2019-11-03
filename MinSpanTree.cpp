@@ -5,6 +5,7 @@
 #include "MinSpanTree.h"
 #include <iostream>
 #include <array>
+#include <algorithm>
 using namespace std;
 
 MinSpanTree::MinSpanTree() {
@@ -18,8 +19,19 @@ void MinSpanTree::selectMSTEdges() {
     vector<edge> cheapestedges;
 //    cout << "In Cheapest Edges list before sorting:\n";
 //    G.displayGraph();
-    sort(G.edges.begin(),G.edges.end(),G.comparator3);
-//    cout << "In Cheapest Edges list after sorting:\n";
+    cout << "Sorting before" << endl;
+    vector<edge> temp_edges = G.edges;
+    long sum=0, sumw=0;
+    for (auto e: temp_edges) {
+        sum += e.getSource();
+        sumw += e.getWeight();
+    }
+    edge g1;
+//    g1 = G.edges[5];
+//    cout << "g1:"<<g1.getSource()<<","<<g1.getDestination()<<","<<g1.getWeight();
+    std::cout << "sums = " << sum << ", " << sumw << std::endl;
+    std::sort(temp_edges.begin(), temp_edges.end(), graph::comparator3);
+    cout << "In Cheapest Edges list after sorting:\n";
 //    G.displayGraph();
     int tempSource = -1;
     for (int i = 0,j = 0;i < G.numvertices;i++) {
@@ -34,8 +46,8 @@ void MinSpanTree::selectMSTEdges() {
         }
         while(tempSource == G.edges[j].getSource() and j != G.edges.size()) j++;
     }
-    cout << "Cheapest Edges List:\n";
-    displayEdges(cheapestedges);
+//    cout << "Cheapest Edges List:\n";
+//    displayEdges(cheapestedges);
     addEdgesToMST(cheapestedges);
 }
 void MinSpanTree::displayEdges(vector<edge> edgeList) {
@@ -56,7 +68,7 @@ void MinSpanTree::addEdgesToMST(vector<edge> cheapestedges) {
             mstEdges.push_back(edge(cheapestedges[i].getSource(),cheapestedges[i].getDestination(),cheapestedges[i].getWeight()));
         }
     }
-    displayEdges(mstEdges);
+//    displayEdges(mstEdges);
     G.numvertices-=newEdgeCount;
 }
 void MinSpanTree::renameVertices() {
@@ -78,10 +90,10 @@ void MinSpanTree::renameVertices() {
         }
     }
 //    displayEdges(G.edges);
-    cout << "\nnewEdge->oldEdge\n";
-    for(int i = 0; i < edgemapping.size(); i++){
-        cout << "(" << edgemapping[i][0] << "," << edgemapping[i][1] << "," << edgemapping[i][2] << ")->(" << edgemapping[i][3] << "," << edgemapping[i][4]<< "," << edgemapping[i][5] << ")\n";
-    }
+//    cout << "\nnewEdge->oldEdge\n";
+//    for(int i = 0; i < edgemapping.size(); i++){
+//        cout << "(" << edgemapping[i][0] << "," << edgemapping[i][1] << "," << edgemapping[i][2] << ")->(" << edgemapping[i][3] << "," << edgemapping[i][4]<< "," << edgemapping[i][5] << ")\n";
+//    }
 }
 void MinSpanTree::updateOriginalEdgeList() {
     sort(G.edges.begin(),G.edges.end(),G.comparator2);
@@ -106,8 +118,8 @@ void MinSpanTree::updateOriginalEdgeList() {
     }
     graph newGraph(G.numvertices,newEdgeList.size(),newEdgeList);
     G = newGraph;
-    cout << "New graph:\n";
-    newGraph.displayGraph();
+//    cout << "New graph:\n";
+//    newGraph.displayGraph();
 }
 void MinSpanTree::recoverOrigEdges() {
     for (int i = mstcounter; i <  mstEdges.size();++i) {

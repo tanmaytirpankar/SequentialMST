@@ -21,7 +21,7 @@ edge::edge(int s, int d, int w, int r) {
     this->weight = w;
     this->randnum = r;
 }
-int edge::getSource() {
+int edge::getSource() const {
     return source;
 }
 void edge::setSource(int source) {
@@ -33,17 +33,23 @@ int edge::getRandnum() {
 void edge::setRandnum(int randnum) {
     edge::randnum = randnum;
 }
-int edge::getDestination() {
+int edge::getDestination() const{
     return destination;
 }
 void edge::setDestination(int destination) {
     edge::destination = destination;
 }
-int edge::getWeight() {
+int edge::getWeight() const {
     return weight;
 }
 void edge::setWeight(int weight) {
     edge::weight = weight;
+}
+
+void edge::operator=(edge const &edge2) {
+    this->setSource(edge2.getSource());
+    this->setDestination(edge2.getDestination());
+    this->setWeight(edge2.getWeight());
 }
 
 

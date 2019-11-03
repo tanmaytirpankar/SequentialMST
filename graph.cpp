@@ -88,7 +88,7 @@ void graph::createUndGrpFrmDGrp(string file) {
 //            i++;
         }
         in.close();
-        displayGraph();
+//        displayGraph();
         //Sorting by means of edge numbers.
 //        cout << "Graph sorted by u first then v:\n";
 //        sort(edges.begin(),edges.end(),comparator1);
@@ -136,9 +136,12 @@ bool graph::comparator2(edge edge1, edge edge2) {
 bool graph::comparator4(edge edge1, edge edge2) {
     return (edge1.getRandnum() < edge2.getRandnum());
 }
-bool graph::comparator3(edge edge1, edge edge2) {
-//    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
-//    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<"\n";
+bool graph::comparator3(const edge& edge1, const edge& edge2) {
+    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
+    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
+
+//    return (edge1.getSource() < edge2.getSource()) ||
+//           ((edge1.getSource() == edge2.getSource()) && (edge1.getWeight() <= edge2.getWeight()));
     if (edge1.getSource() < edge2.getSource())
         return true;
     else if(edge1.getSource() > edge2.getSource())

@@ -17,9 +17,10 @@ public:
     //Constructor which initializes the sources vertex, destination vertex, weight of edge and random number
     // representing edge number.
     edge(int,int,int,int);
-    int getSource();
-    int getDestination();
-    int getWeight();
+    void operator =(edge const &edge2);
+    int getSource() const;
+    int getDestination() const;
+    int getWeight() const;
     int getRandnum();
 
     void setSource(int source);
