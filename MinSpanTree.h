@@ -23,8 +23,10 @@ public:
     void renameVertices();
     void updateOriginalEdgeList();
     void displayEdges(vector<edge>);
-    void recoverOrigEdges();
+    void recoverOrigEdges(int round);
     vector<edge> findMST();
+    int getMstcounter() const;
+    const vector<edge> &getMstEdges() const;
 };
 
 

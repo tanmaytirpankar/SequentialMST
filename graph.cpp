@@ -37,7 +37,8 @@ void graph::createUndGrpfrmfile(string file) {
         int s,d,w = 0;
 //        int i = 0;
         //Reads edges from file till end of file.
-        while(!in.eof())
+        for(int j = 0; j < numedges; j++)
+//        while(!in.eof())
         {
             getline(in,line,',');
             s = stoi(line);
@@ -68,9 +69,11 @@ void graph::createUndGrpFrmDGrp(string file) {
         //Reads number of edges from file.
         getline(in,line,'\n');
         this->numedges = stoi(line) * 2;
+        std::cout << "Edges:" << numedges <<std::endl;
         int s,d,w = 0;
 //        int i = 0;
         //Reads edges from file till end of file.
+//        for(int j = 0; j < numedges/2; j++)
         while(!in.eof())
         {
             getline(in,line,',');
@@ -122,36 +125,44 @@ bool graph::comparator1(edge edge1, edge edge2) {
     return (edge1.getSource() < edge2.getSource());
 }
 bool graph::comparator2(edge edge1, edge edge2) {
+//    if (edge1.getSource() < edge2.getSource())
+//        return true;
+//    else if(edge1.getSource() > edge2.getSource())
+//        return false;
+//    else {
+//        if (edge1.getDestination() <= edge2.getDestination())
+//            return true;
+//        else
+//            return false;
+//    }
     if (edge1.getSource() < edge2.getSource())
         return true;
-    else if(edge1.getSource() > edge2.getSource())
+    if(edge1.getSource() > edge2.getSource())
         return false;
-    else {
-        if (edge1.getDestination() <= edge2.getDestination())
-            return true;
-        else
-            return false;
-    }
+    if (edge1.getDestination() < edge2.getDestination())
+        return true;
+    if(edge1.getDestination() > edge2.getDestination())
+        return false;
+    return false;
 }
 bool graph::comparator4(edge edge1, edge edge2) {
     return (edge1.getRandnum() < edge2.getRandnum());
 }
 bool graph::comparator3(const edge& edge1, const edge& edge2) {
-    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
-    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
+//    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
+//    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
 
 //    return (edge1.getSource() < edge2.getSource()) ||
 //           ((edge1.getSource() == edge2.getSource()) && (edge1.getWeight() <= edge2.getWeight()));
     if (edge1.getSource() < edge2.getSource())
         return true;
-    else if(edge1.getSource() > edge2.getSource())
+    if(edge1.getSource() > edge2.getSource())
         return false;
-    else {
-        if (edge1.getWeight() <= edge2.getWeight())
-            return true;
-        else
-            return false;
-    }
+    if (edge1.getWeight() < edge2.getWeight())
+        return true;
+    if(edge1.getWeight() > edge2.getWeight())
+        return false;
+    return false;
 }
 int graph::getNumedges() {
     return numedges;

@@ -6,10 +6,10 @@
 using namespace std;
 int main() {
     //CSV file to be taken which contains edges in the form <source,destination,weight> and first line is number of vertices,number of edges..
-    string file = "../testsets/soc-sign-bitcoinalpha1.csv";
+    string file = "../testsets/temp";
     graph G = graph();
     chrono::time_point<std::chrono::system_clock> start, end;
-    //G.createUndGrpfrmfile(file);
+//    G.createUndGrpfrmfile(file);
     G.createUndGrpFrmDGrp(file);
     MinSpanTree mst = MinSpanTree(G);
 //    mst.selectMSTEdges();
@@ -18,10 +18,12 @@ int main() {
 //    mst.selectMSTEdges();
     start = chrono::system_clock::now();
     vector<edge> finalMST = mst.findMST();
+    cout << "Size of MST list:" << mst.getMstEdges().size()<<endl;
+
 //    mst.displayEdges(finalMST);
     end = chrono::system_clock::now();
     chrono::duration<double> elapsed_seconds = end - start;
-    cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    cout << "elapsed time: " << elapsed_seconds.count() << "s" << endl;
     return 0;
 }
 

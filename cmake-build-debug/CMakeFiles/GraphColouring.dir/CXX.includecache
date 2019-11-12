@@ -6,19 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.h
-
-/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.cpp
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.cpp
+MinSpanTree.h
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.h
 iostream
 -
-fstream
--
-vector
+array
 -
 algorithm
 -
+chrono
+-
+
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/MinSpanTree.h
 graph.h
 /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h
+vector
+-
+array
+-
+
+/Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/edge.h
 
 /Users/tanmaytirpankar/Documents/CLionProjects/GraphColouring/graph.h
 edge.h
