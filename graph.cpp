@@ -34,8 +34,7 @@ void graph::createUndGrpfrmfile(string file) {
         //Reads number of edges from file.
         getline(in,line,'\n');
         this->numedges = stoi(line);
-        int s,d,w = 0;
-//        int i = 0;
+        int s,d,w,os,od = 0;
         //Reads edges from file till end of file.
         for(int j = 0; j < numedges; j++)
 //        while(!in.eof())
@@ -46,9 +45,8 @@ void graph::createUndGrpfrmfile(string file) {
             d = stoi(line);
             getline(in,line,'\n');
             w = stoi(line);
-            edge temp = edge(s,d,w);
+            edge temp = edge(s,d,w,s,d);
             edges.push_back(temp);
-//            i++;
         }
         in.close();
         displayGraph();
@@ -71,7 +69,6 @@ void graph::createUndGrpFrmDGrp(string file) {
         this->numedges = stoi(line) * 2;
         std::cout << "Edges:" << numedges <<std::endl;
         int s,d,w = 0;
-//        int i = 0;
         //Reads edges from file till end of file.
 //        for(int j = 0; j < numedges/2; j++)
         while(!in.eof())
@@ -82,13 +79,10 @@ void graph::createUndGrpFrmDGrp(string file) {
             d = stoi(line);
             getline(in,line,'\n');
             w = stoi(line);
-            edge temp = edge(s,d,w);
-//            edge temp = edge(s,d,w,i);
+            edge temp = edge(s,d,w,s,d);
             edges.push_back(temp);
-            temp = edge(d,s,w);
+            temp = edge(d,s,w,d,s);
             edges.push_back(temp);
-//            temp = edge(d,s,w,i);
-//            i++;
         }
         in.close();
 //        displayGraph();
@@ -99,24 +93,15 @@ void graph::createUndGrpFrmDGrp(string file) {
     }
 }
 void graph::displayGraph() {
-    cout << "numVertices:" << getNumvertices();
-    cout << "\nnumEdges:" << getNumedges();
-    cout << "\nSource Destination Weight\n";
-    for (int i = 0; i < edges.size(); ++i) {
-        cout << edges[i].getSource() << "\t";
-        cout << edges[i].getDestination() << "\t";
-        cout << edges[i].getWeight() << "\n";
-    }
-}
-void graph::displayGraph1() {
-    cout << "\nnumVertices:" << getNumvertices();
-    cout << "\nnumEdges:" << getNumedges();
-    cout << "Source Destination Weight EdgeNum\n";
+    cout << "numVertices:" << getNumvertices() << endl;
+    cout << "numEdges:" << getNumedges() << endl;
+    cout << "Src Dest Wt OSrc ODest" << endl;
     for (int i = 0; i < edges.size(); ++i) {
         cout << edges[i].getSource() << "\t";
         cout << edges[i].getDestination() << "\t";
         cout << edges[i].getWeight() << "\t";
-        cout << edges[i].getRandnum() << "\n";
+        cout << edges[i].getSrcOriginal() << "\t";
+        cout << edges[i].getDestOriginal() << endl;
     }
 }
 bool graph::comparator1(edge edge1, edge edge2) {
@@ -144,9 +129,6 @@ bool graph::comparator2(edge edge1, edge edge2) {
     if(edge1.getDestination() > edge2.getDestination())
         return false;
     return false;
-}
-bool graph::comparator4(edge edge1, edge edge2) {
-    return (edge1.getRandnum() < edge2.getRandnum());
 }
 bool graph::comparator3(const edge& edge1, const edge& edge2) {
 //    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";

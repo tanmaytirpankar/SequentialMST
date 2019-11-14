@@ -35,9 +35,9 @@ void MinSpanTree::selectMSTEdges() {
         {
             tempSource = G.edges[j].getSource();
             if(G.edges[j].getSource()>G.edges[j].getDestination()){
-                cheapestedges.push_back(edge(G.edges[j].getDestination(),G.edges[j].getSource(),G.edges[j].getWeight()));
+                cheapestedges.push_back(edge(G.edges[j].getDestination(),G.edges[j].getSource(),G.edges[j].getWeight(),G.edges[j].getDestOriginal(),G.edges[j].getSrcOriginal()));
             } else{
-                cheapestedges.push_back(edge(G.edges[j].getSource(),G.edges[j].getDestination(),G.edges[j].getWeight()));
+                cheapestedges.push_back(edge(G.edges[j].getSource(),G.edges[j].getDestination(),G.edges[j].getWeight(),G.edges[j].getSrcOriginal(),G.edges[j].getDestOriginal()));
             }
         }
         while(tempSource == G.edges[j].getSource() and j != G.edges.size())
@@ -56,11 +56,13 @@ void MinSpanTree::selectMSTEdges() {
     addEdgesToMST(cheapestedges);
 }
 void MinSpanTree::displayEdges(vector<edge> edgeList) {
-    cout << "Source Destination Weight" << endl;
+    cout << "Src Dest Wt OSrc ODest" << endl;
     for (int i = 0; i < edgeList.size(); ++i) {
         cout << edgeList[i].getSource() << "\t";
         cout << edgeList[i].getDestination() << "\t";
-        cout << edgeList[i].getWeight() << endl;
+        cout << edgeList[i].getWeight() << "\t";
+        cout << edgeList[i].getSrcOriginal() << "\t";
+        cout << edgeList[i].getDestOriginal() << endl;
     }
 }
 void MinSpanTree::addEdgesToMST(vector<edge> cheapestedges) {
@@ -70,7 +72,7 @@ void MinSpanTree::addEdgesToMST(vector<edge> cheapestedges) {
     for(int i = 0;i < cheapestedges.size() - 1;i++){
         if(cheapestedges[i].getSource() == cheapestedges[i+1].getSource() && cheapestedges[i].getDestination() == cheapestedges[i+1].getDestination()){
             newEdgeCount++;
-            mstEdges.push_back(edge(cheapestedges[i].getSource(),cheapestedges[i].getDestination(),cheapestedges[i].getWeight()));
+            mstEdges.push_back(edge(cheapestedges[i].getSource(),cheapestedges[i].getDestination(),cheapestedges[i].getWeight(),cheapestedges[i].getSrcOriginal(),cheapestedges[i].getDestOriginal()));
         }
     }
 //    cout << "Size of MST list:" << mstEdges.size()<<endl;
@@ -115,21 +117,21 @@ void MinSpanTree::updateOriginalEdgeList() {
     sort(G.edges.begin(),G.edges.end(),G.comparator2);
 //    displayEdges(G.edges);
     vector<edge> newEdgeList;
-    G.edges.push_back(edge(0,0,0));
+    G.edges.push_back(edge(0,0,0,0,0));
     for (int i = 0; i < G.edges.size()-1; ++i) {
         if(G.edges[i].getSource() == G.edges[i+1].getSource() && G.edges[i].getDestination() == G.edges[i+1].getDestination())
         {
             if(G.edges[i].getWeight() < G.edges[i+1].getWeight())
             {
-                newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight()));
+                newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
             }
             else if(G.edges[i].getWeight() > G.edges[i+1].getWeight()){
-                newEdgeList.push_back(edge(G.edges[i+1].getSource(),G.edges[i+1].getDestination(),G.edges[i+1].getWeight()));
+                newEdgeList.push_back(edge(G.edges[i+1].getSource(),G.edges[i+1].getDestination(),G.edges[i+1].getWeight(),G.edges[i+1].getSrcOriginal(),G.edges[i+1].getDestOriginal()));
             }
             i++;
         }
         else{
-            newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight()));
+            newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
         }
     }
     graph newGraph(G.numvertices,newEdgeList.size(),newEdgeList);

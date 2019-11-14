@@ -8,20 +8,22 @@
 
 
 class edge {
-    int source,destination,weight,randnum;
+    int source,destination,src_original,dest_original,weight;
 public:
     //Constructor initializing everything to -1.
     edge();
     //Constructor which initializes the sources vertex, destination vertex and weight of edge.
-    edge(int,int,int);
-    //Constructor which initializes the sources vertex, destination vertex, weight of edge and random number
-    // representing edge number.
-    edge(int,int,int,int);
-    void operator =(edge const &edge2);
+    edge(int,int,int,int,int);
+
     int getSource() const;
+
     int getDestination() const;
+
     int getWeight() const;
-    int getRandnum();
+
+    int getSrcOriginal() const;
+
+    int getDestOriginal() const;
 
     void setSource(int source);
 
@@ -29,7 +31,6 @@ public:
 
     void setWeight(int weight);
 
-    void setRandnum(int randnum);
 };
 
 
