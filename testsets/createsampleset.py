@@ -13,8 +13,8 @@
 
 
 import random
-f1= open("tempset.txt","r")
-f2= open("temp5","w")
+f1= open("../tempset.txt","r")
+f2= open("temp13","w")
 edgeset = set()
 set_verts = set()
 x = f1.readline()

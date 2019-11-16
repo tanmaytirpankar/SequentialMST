@@ -15,6 +15,7 @@ class MinSpanTree {
     int mstcounter;
     vector<edge> mstEdges;
     vector<array<int, 6>> edgemapping;
+    int round;
 public:
     MinSpanTree();
     MinSpanTree(graph);

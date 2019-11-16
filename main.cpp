@@ -9,8 +9,8 @@ int main() {
     string file = "../testsets/temp1";
     graph G = graph();
     chrono::time_point<std::chrono::system_clock> start, end;
-//    G.createUndGrpfrmfile(file);
-    G.createUndGrpFrmDGrp(file);
+    G.createUndGrpfrmfile(file);
+//    G.createUndGrpFrmDGrp(file);
     MinSpanTree mst = MinSpanTree(G);
 //    mst.selectMSTEdges();
 //    mst.renameVertices();

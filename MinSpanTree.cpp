@@ -7,6 +7,8 @@
 #include <array>
 #include <algorithm>
 #include <chrono>
+
+#define debuground -1
 using namespace std;
 
 MinSpanTree::MinSpanTree() {
@@ -18,40 +20,122 @@ MinSpanTree::MinSpanTree(graph graph1) {
 }
 void MinSpanTree::selectMSTEdges() {
     vector<edge> cheapestedges;
-//    cout << "In Cheapest Edges list before sorting:"<<endl;
+//    if(round == debuground) {
+//        cout << "In Cheapest Edges list before sorting:"<<endl;
+//        G.displayGraph();
+//    }
+//    cout << "In Cheapest Edges list before first sorting:"<<endl;
 //    G.displayGraph();
-//    cout << "Sorting before" << endl;
-    long sum=0, sumw=0;
-    edge g1;
+//    long sum=0, sumw=0;
+//    edge g1;
 //    g1 = G.edges[5];
 //    cout << "g1:"<<g1.getSource()<<","<<g1.getDestination()<<","<<g1.getWeight();
 //    std::cout << "sums = " << sum << ", " << sumw << std::endl;
+
     std::sort(G.edges.begin(), G.edges.end(), graph::comparator3);
-//    cout << "In Cheapest Edges list after sorting:"<<endl;
+
+//    if(round == debuground) {
+//        cout << "In Cheapest Edges list after sorting:"<<endl;
+//        G.displayGraph();
+//    }
+//    cout << "In Cheapest Edges list after first sorting:"<<endl;
 //    G.displayGraph();
-    int tempSource = -1;
-    for (int i = 0,j = 0;i < G.numvertices;i++) {
-        if(tempSource != G.edges[j].getSource())
+    graph G1 = G;
+    std::sort(G1.edges.begin(), G1.edges.end(), graph::comparator6);
+
+//    if(round == debuground) {
+//        cout << "In Cheapest Edges list after sorting:"<<endl;
+//        G1.displayGraph();
+//    }
+//    cout << "In Cheapest Edges list after second sorting:"<<endl;
+//    G1.displayGraph();
+
+    int tempSourcei = G.edges[0].getSource();
+    int tempSourcej = G1.edges[0].getDestination();
+    int i = 0;
+    int j = 0;
+    while(i < G.edges.size() && j < G1.edges.size())
+    {
+        if(G.edges[i].getSource() < G1.edges[j].getDestination())
         {
-            tempSource = G.edges[j].getSource();
-            if(G.edges[j].getSource()>G.edges[j].getDestination()){
-                cheapestedges.push_back(edge(G.edges[j].getDestination(),G.edges[j].getSource(),G.edges[j].getWeight(),G.edges[j].getDestOriginal(),G.edges[j].getSrcOriginal()));
-            } else{
-                cheapestedges.push_back(edge(G.edges[j].getSource(),G.edges[j].getDestination(),G.edges[j].getWeight(),G.edges[j].getSrcOriginal(),G.edges[j].getDestOriginal()));
+            cheapestedges.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
+            while(tempSourcei == G.edges[i].getSource())
+            {
+                i++;
+                if(i == G.edges.size()) break;
+            }
+            if(i != G.edges.size()) {
+                tempSourcei = G.edges[i].getSource();
             }
         }
-        while(tempSource == G.edges[j].getSource() and j != G.edges.size())
+        else if(G.edges[i].getSource() > G1.edges[j].getDestination())
         {
-            j++;
-            if(j+1 == G.edges.size()) break;
+            cheapestedges.push_back(edge(G1.edges[j].getSource(),G1.edges[j].getDestination(),G1.edges[j].getWeight(),G1.edges[j].getSrcOriginal(),G1.edges[j].getDestOriginal()));
+            while(tempSourcej == G1.edges[j].getDestination())
+            {
+                j++;
+                if(j == G1.edges.size()) break;
+            }
+            if(j != G1.edges.size()) {
+                tempSourcej = G1.edges[j].getDestination();
+            }
+        }
+        else
+        {
+            if(G.edges[i].getWeight() < G1.edges[j].getWeight())
+            {
+                cheapestedges.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
+            }
+            else
+            {
+                cheapestedges.push_back(edge(G1.edges[j].getSource(),G1.edges[j].getDestination(),G1.edges[j].getWeight(),G1.edges[j].getSrcOriginal(),G1.edges[j].getDestOriginal()));
+            }
+            while(tempSourcei == G.edges[i].getSource())
+            {
+                i++;
+                if(i == G.edges.size()) break;
+            }
+            if(i != G.edges.size()) {
+                tempSourcei = G.edges[i].getSource();
+            }
+            while(tempSourcej == G1.edges[j].getDestination())
+            {
+                j++;
+                if(j == G1.edges.size()) break;
+            }
+            if(j != G1.edges.size()) {
+                tempSourcej = G1.edges[j].getDestination();
+            }
         }
     }
-//    if(G.edges.size()<G.edges.size()+1)
-//    {
-//        cout << "Cheapest Edges List:" << endl;
+    while(i < G.edges.size()) {
+        cheapestedges.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
+        while(tempSourcei == G.edges[i].getSource())
+        {
+            i++;
+            if(i == G.edges.size()) break;
+        }
+        if(i != G.edges.size()) {
+            tempSourcei = G.edges[i].getSource();
+        }
+    }
+    while(j < G1.edges.size()) {
+        cheapestedges.push_back(edge(G1.edges[j].getSource(),G1.edges[j].getDestination(),G1.edges[j].getWeight(),G1.edges[j].getSrcOriginal(),G1.edges[j].getDestOriginal()));
+        while(tempSourcej == G1.edges[j].getDestination())
+        {
+            j++;
+            if(j == G1.edges.size()) break;
+        }
+        if(j != G1.edges.size()) {
+            tempSourcej = G1.edges[j].getDestination();
+        }
+    }
+
+//    if(round == debuground) {
+//        cout << "Cheapest Edges List: " << cheapestedges.size() << " vertices" << endl;
 //        displayEdges(cheapestedges);
 //    }
-//    cout << "Cheapest Edges List:" << endl;
+//    cout << "Unsorted Cheapest Edges List: " << cheapestedges.size() << " vertices" << endl;
 //    displayEdges(cheapestedges);
     addEdgesToMST(cheapestedges);
 }
@@ -67,44 +151,67 @@ void MinSpanTree::displayEdges(vector<edge> edgeList) {
 }
 void MinSpanTree::addEdgesToMST(vector<edge> cheapestedges) {
     sort(cheapestedges.begin(),cheapestedges.end(),G.comparator2);
+    cout << "Sorted Cheapest Edges List: " << cheapestedges.size() << " vertices" << endl;
+    displayEdges(cheapestedges);
     int newEdgeCount = 0;
-//    displayEdges(cheapestedges);
     for(int i = 0;i < cheapestedges.size() - 1;i++){
         if(cheapestedges[i].getSource() == cheapestedges[i+1].getSource() && cheapestedges[i].getDestination() == cheapestedges[i+1].getDestination()){
             newEdgeCount++;
             mstEdges.push_back(edge(cheapestedges[i].getSource(),cheapestedges[i].getDestination(),cheapestedges[i].getWeight(),cheapestedges[i].getSrcOriginal(),cheapestedges[i].getDestOriginal()));
         }
     }
-//    cout << "Size of MST list:" << mstEdges.size()<<endl;
-//    if(G.edges.size()<G.edges.size()+1)
-//    {
-//        cout << "MST Edges List:" << endl;
-//        displayEdges(mstEdges);
-//    }
-//    cout << "MST Edges List:" <<endl;
-//    displayEdges(mstEdges);
+    if(round == debuground) {
+        cout << "Size of MST list:" << mstEdges.size()<<endl;
+        cout << "MST Edges List:" <<endl;
+        displayEdges(mstEdges);
+    }
+    cout << "Size of MST list:" << mstEdges.size()<<endl;
+    cout << "MST Edges List:" <<endl;
+    displayEdges(mstEdges);
     G.numvertices-=newEdgeCount;
+    exit(0);
 }
 void MinSpanTree::renameVertices() {
+    std::sort(G.edges.begin(), G.edges.end(), graph::comparator1);
+    std::sort(mstEdges.begin()+mstcounter,mstEdges.end(),graph::comparator4);
+    if(round == debuground) {
+        cout << "Before renaming vertices:"<<endl;
+        displayEdges(G.edges);
+    }
 //    cout << "Before renaming vertices:"<<endl;
 //    displayEdges(G.edges);
-    for (int i = 0; i < G.edges.size(); ++i) {
-        for (int j = mstcounter; j < mstEdges.size(); ++j) {
-            if(G.edges[i].getSource() == mstEdges[j].getDestination())
-            {
-//                array<int, 6> temp = {mstEdges[j].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight()};
-//                edgemapping.push_back(temp);
-                G.edges[i].setSource(mstEdges[j].getSource());
-//                break;
-            }
-            if(G.edges[i].getDestination() == mstEdges[j].getDestination())
-            {
-//                array<int, 6> temp = {G.edges[i].getSource(),mstEdges[j].getSource(),G.edges[i].getWeight(),G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight()};
-//                edgemapping.push_back(temp);
-                G.edges[i].setDestination(mstEdges[j].getSource());
-//                break;
-            }
+    for (int i = 0, j = mstcounter; i < G.edges.size(); ++i) {
+        if(G.edges[i].getSource() > mstEdges[j].getDestination()) {
+            j++;
+            if (j >= mstEdges.size()) break;
         }
+        if(G.edges[i].getSource() == mstEdges[j].getDestination())
+        {
+//            array<int, 6> temp = {mstEdges[j].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight(),
+//                                  G.edges[i].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight()};
+//            edgemapping.push_back(temp);
+            G.edges[i].setSource(mstEdges[j].getSource());
+//            break;
+        }
+    }
+    std::sort(G.edges.begin(), G.edges.end(), graph::comparator4);
+    for (int i = 0, j = mstcounter; i < G.edges.size(); ++i) {
+        if(G.edges[i].getDestination() > mstEdges[j].getDestination()) {
+            j++;
+            if (j >= mstEdges.size()) break;
+        }
+
+        if(G.edges[i].getDestination() == mstEdges[j].getDestination()) {
+//            array<int, 6> temp = {G.edges[i].getSource(), mstEdges[j].getSource(), G.edges[i].getWeight(),
+//                                  G.edges[i].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight()};
+//            edgemapping.push_back(temp);
+            G.edges[i].setDestination(mstEdges[j].getSource());
+//            break;
+        }
+    }
+    if(round == debuground) {
+        cout << "After renaming vertices:"<<endl;
+        displayEdges(G.edges);
     }
 //    cout << "After renaming vertices:"<<endl;
 //    displayEdges(G.edges);
@@ -114,30 +221,60 @@ void MinSpanTree::renameVertices() {
 //    }
 }
 void MinSpanTree::updateOriginalEdgeList() {
-    sort(G.edges.begin(),G.edges.end(),G.comparator2);
+    sort(G.edges.begin(), G.edges.end(), G.comparator5);
+    if(round == debuground) {
+        cout << "Before Updating Edge List:" << endl;
+        displayEdges(G.edges);
+    }
+//    cout << "Before Updating Edge List:" << endl;
 //    displayEdges(G.edges);
     vector<edge> newEdgeList;
-    G.edges.push_back(edge(0,0,0,0,0));
-    for (int i = 0; i < G.edges.size()-1; ++i) {
-        if(G.edges[i].getSource() == G.edges[i+1].getSource() && G.edges[i].getDestination() == G.edges[i+1].getDestination())
+    edge tempedge(-1,-1,-1,-1,-1);
+    int i = 0;
+    while(i < G.edges.size()){
+        if (tempedge.getSource() != G.edges[i].getSource() || tempedge.getDestination() != G.edges[i].getDestination())
         {
-            if(G.edges[i].getWeight() < G.edges[i+1].getWeight())
-            {
-                newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
+            tempedge.setSource(G.edges[i].getSource());
+            tempedge.setDestination(G.edges[i].getDestination());
+            if (G.edges[i].getSource() != G.edges[i].getDestination()) {
+                newEdgeList.push_back(edge(G.edges[i].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight(),
+                                           G.edges[i].getSrcOriginal(), G.edges[i].getDestOriginal()));
             }
-            else if(G.edges[i].getWeight() > G.edges[i+1].getWeight()){
-                newEdgeList.push_back(edge(G.edges[i+1].getSource(),G.edges[i+1].getDestination(),G.edges[i+1].getWeight(),G.edges[i+1].getSrcOriginal(),G.edges[i+1].getDestOriginal()));
-            }
-            i++;
         }
-        else{
-            newEdgeList.push_back(edge(G.edges[i].getSource(),G.edges[i].getDestination(),G.edges[i].getWeight(),G.edges[i].getSrcOriginal(),G.edges[i].getDestOriginal()));
+        while(tempedge.getSource() == G.edges[i].getSource() && tempedge.getDestination() == G.edges[i].getDestination())
+        {
+            i++;
+            if(i == G.edges.size()) break;
         }
     }
-    graph newGraph(G.numvertices,newEdgeList.size(),newEdgeList);
+//    G.edges.push_back(edge(-1, -1, -1, -1, -1));
+//    for (int i = 0; i < G.edges.size() - 1; ++i) {
+//        if (G.edges[i].getSource() == G.edges[i + 1].getSource() &&
+//            G.edges[i].getDestination() == G.edges[i + 1].getDestination()) {
+//            if (G.edges[i].getWeight() < G.edges[i + 1].getWeight()) {
+//                newEdgeList.push_back(edge(G.edges[i].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight(),
+//                                           G.edges[i].getSrcOriginal(), G.edges[i].getDestOriginal()));
+//            } else if (G.edges[i].getWeight() > G.edges[i + 1].getWeight()) {
+//                newEdgeList.push_back(
+//                        edge(G.edges[i + 1].getSource(), G.edges[i + 1].getDestination(), G.edges[i + 1].getWeight(),
+//                             G.edges[i + 1].getSrcOriginal(), G.edges[i + 1].getDestOriginal()));
+//            }
+//            i++;
+//        } else {
+//            if (G.edges[i].getSource() != G.edges[i].getDestination()) {
+//                newEdgeList.push_back(edge(G.edges[i].getSource(), G.edges[i].getDestination(), G.edges[i].getWeight(),
+//                                           G.edges[i].getSrcOriginal(), G.edges[i].getDestOriginal()));
+//            }
+//        }
+//    }
+    graph newGraph(G.numvertices, newEdgeList.size(), newEdgeList);
     G = newGraph;
     mstcounter = mstEdges.size();
-//    cout << "New graph:" << endl;
+    if(round == debuground) {
+        cout << "After Updating Edge List:" << endl;
+        newGraph.displayGraph();
+    }
+//    cout << "After Updating Edge List:" << endl;
 //    newGraph.displayGraph();
 }
 void MinSpanTree::recoverOrigEdges(int round) {
@@ -155,7 +292,7 @@ void MinSpanTree::recoverOrigEdges(int round) {
     mstcounter = mstEdges.size();
 }
 vector<edge> MinSpanTree::findMST() {
-    int round = 0;
+    this->round = 0;
 //    while (this->mstEdges.size())
     chrono::duration<double> time_selectingMSTEdges;
     chrono::duration<double> time_renameVerts;

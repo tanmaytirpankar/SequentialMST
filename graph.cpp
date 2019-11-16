@@ -49,7 +49,7 @@ void graph::createUndGrpfrmfile(string file) {
             edges.push_back(temp);
         }
         in.close();
-        displayGraph();
+//        displayGraph();
         //Sorting by means of source vertex.
 //        sort(edges.begin(),edges.end(),comparator1);
 //        displayGraph();
@@ -104,29 +104,19 @@ void graph::displayGraph() {
         cout << edges[i].getDestOriginal() << endl;
     }
 }
-bool graph::comparator1(edge edge1, edge edge2) {
+bool graph::comparator1(const edge& edge1, const edge& edge2) {
 //    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
 //    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<"\n";
     return (edge1.getSource() < edge2.getSource());
 }
-bool graph::comparator2(edge edge1, edge edge2) {
-//    if (edge1.getSource() < edge2.getSource())
-//        return true;
-//    else if(edge1.getSource() > edge2.getSource())
-//        return false;
-//    else {
-//        if (edge1.getDestination() <= edge2.getDestination())
-//            return true;
-//        else
-//            return false;
-//    }
+bool graph::comparator2(const edge& edge1, const edge& edge2) {
     if (edge1.getSource() < edge2.getSource())
         return true;
-    if(edge1.getSource() > edge2.getSource())
+    if (edge1.getSource() > edge2.getSource())
         return false;
     if (edge1.getDestination() < edge2.getDestination())
         return true;
-    if(edge1.getDestination() > edge2.getDestination())
+    if (edge1.getDestination() > edge2.getDestination())
         return false;
     return false;
 }
@@ -134,15 +124,50 @@ bool graph::comparator3(const edge& edge1, const edge& edge2) {
 //    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
 //    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
 
-//    return (edge1.getSource() < edge2.getSource()) ||
-//           ((edge1.getSource() == edge2.getSource()) && (edge1.getWeight() <= edge2.getWeight()));
     if (edge1.getSource() < edge2.getSource())
         return true;
-    if(edge1.getSource() > edge2.getSource())
+    if (edge1.getSource() > edge2.getSource())
+        return false;
+    if (edge1.getWeight() < edge2.getWeight())
+        return true;
+    if (edge1.getWeight() > edge2.getWeight())
+        return false;
+    return false;
+}
+bool graph::comparator4(const edge& edge1, const edge& edge2) {
+//    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
+//    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<"\n";
+    return (edge1.getDestination() < edge2.getDestination());
+}
+bool graph::comparator5(const edge& edge1, const edge& edge2) {
+//    cout << "comparing [" << edge1.getSource() << "," << edge1.getDestination() <<"," << edge1.getWeight()<<"]";
+//    cout << ", [" << edge2.getSource() <<"," << edge2.getDestination() << "," << edge2.getWeight()<<"]" <<endl;
+
+    if (edge1.getSource() < edge2.getSource())
+        return true;
+    if (edge1.getSource() > edge2.getSource())
+        return false;
+    if (edge1.getDestination() < edge2.getDestination())
+        return true;
+    if (edge1.getDestination() > edge2.getDestination())
         return false;
     if (edge1.getWeight() < edge2.getWeight())
         return true;
     if(edge1.getWeight() > edge2.getWeight())
+        return false;
+    return false;
+}
+bool graph::comparator6(const edge& edge1, const edge& edge2) {
+//    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
+//    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
+
+    if (edge1.getDestination() < edge2.getDestination())
+        return true;
+    if (edge1.getDestination() > edge2.getDestination())
+        return false;
+    if (edge1.getWeight() < edge2.getWeight())
+        return true;
+    if (edge1.getWeight() > edge2.getWeight())
         return false;
     return false;
 }
@@ -157,3 +182,14 @@ vector<edge> graph::getEdges() {
     return this->edges;
 }
 
+void graph::setNumedges(int numedges) {
+    graph::numedges = numedges;
+}
+
+void graph::setNumvertices(int numvertices) {
+    graph::numvertices = numvertices;
+}
+
+void graph::setEdges(const vector<edge> &edges) {
+    graph::edges = edges;
+}
