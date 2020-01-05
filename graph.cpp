@@ -158,8 +158,8 @@ bool graph::comparator5(const edge& edge1, const edge& edge2) {
     return false;
 }
 bool graph::comparator6(const edge& edge1, const edge& edge2) {
-//    cout << "comparing [" << edge1.getSource() <<"," << edge1.getWeight()<<"]";
-//    cout << ", [" << edge2.getSource() <<"," << edge2.getWeight()<<"] = " << (edge1.getSource() < edge2.getSource())<<endl;
+//    cout << "comparing [" << edge1.getDestination() <<"," << edge1.getWeight()<<"]";
+//    cout << ", [" << edge2.getDestination() <<"," << edge2.getWeight()<<"] = " << (edge1.getDestination() < edge2.getDestination())<<endl;
 
     if (edge1.getDestination() < edge2.getDestination())
         return true;
@@ -171,6 +171,23 @@ bool graph::comparator6(const edge& edge1, const edge& edge2) {
         return false;
     return false;
 }
+
+bool graph::comparator7(const edge &edge1, const edge &edge2) {
+    //    cout << "comparing [" << edge1.getDestination() <<"," << edge1.getSource()<<"]";
+//    cout << ", [" << edge2.getDestination() <<"," << edge2.getSource()<<"] = " << (edge1.getDestination() < edge2.getDestination())<<endl;
+
+    if (edge1.getDestination() < edge2.getDestination())
+        return true;
+    if (edge1.getDestination() > edge2.getDestination())
+        return false;
+    if (edge1.getSource() < edge2.getSource())
+        return true;
+    if (edge1.getSource() > edge2.getSource())
+        return false;
+    return false;
+}
+
+
 int graph::getNumedges() {
     return numedges;
 }

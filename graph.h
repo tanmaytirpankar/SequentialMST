@@ -38,6 +38,8 @@ public:
     static bool comparator5(const edge &edge1, const edge &edge2);
     //Comparator for sorting edges by means of destination first and then weights.
     static bool comparator6(const edge &edge1, const edge &edge2);
+    //Comparator for sorting edges by means of destination first and then source.
+    static bool comparator7(const edge &edge1, const edge &edge2);
     int getNumedges();
 
     void setNumedges(int numedges);

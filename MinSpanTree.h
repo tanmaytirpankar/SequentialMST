@@ -23,11 +23,15 @@ public:
     void addEdgesToMST(vector<edge>);
     void renameVertices();
     void updateOriginalEdgeList();
+    bool checkEdgeList(vector<edge>);
     void displayEdges(vector<edge>);
+    //Displays single edge from original graph.
+    void displayEdge(vector<edge>,int,int);
     void recoverOrigEdges(int round);
     vector<edge> findMST();
     int getMstcounter() const;
-    const vector<edge> &getMstEdges() const;
+    const vector<edge> &getMstEdges();
+    int getMSTweight();
 };
 
 

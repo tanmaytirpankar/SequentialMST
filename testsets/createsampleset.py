@@ -10,11 +10,11 @@
 
 #Use the following command only if the print from the previous command returns True meaning graph is connected.
 #snap.SaveEdgeList(G1, "tempset.txt", "Save as tab-separated list of edges")
-
+#G2 = snap.LoadEdgeList(snap.PUNGraph, "tempset1.txt", 0, 1)
 
 import random
-f1= open("../tempset.txt","r")
-f2= open("temp13","w")
+f1= open("tempset.txt","r")
+f2= open("temp3","w")
 edgeset = set()
 set_verts = set()
 x = f1.readline()
@@ -23,7 +23,7 @@ x = f1.readline()
 x = f1.readline()
 for x in f1:
     x = x.split("\t")
-    weight = random.randint(1,500)
+    weight = random.randint(1,40000)
     edgeset.add(tuple([int(x[0]), int(x[1].rstrip()), weight]))
 #    edgeset.add(tuple([int(x[1].rstrip()), int(x[0]), weight]))
     set_verts.add(int(x[0]))
